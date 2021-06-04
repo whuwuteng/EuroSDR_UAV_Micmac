@@ -73,6 +73,23 @@ Then the final result is obtain, the rotation matrix is same with the computer v
 
 ### GCP check
 
+In the experiment, the 2D measurements do not have a good precision. So if you want to use Micmac to measure the points, there is a [tool](https://micmac.ensg.eu/index.php/SaisieAppuisPredic) to do it.
+``` shell
+#! /bin/bash
+
+mm3d SaisieAppuisPredic ".*tif" Ori-RTL-Bascule gcp_tp-3D.xml gcp_tp-3D.xml ForceGray=false 
+```
+
+By the way, the precision of the GCP is also unknown, we can split the GCP into control points and check points. 
+``` shell
+#! /bin/bash
+
+DATA_DIR="/home/tengwu/Penta-Cam-Centre"
+
+python3 gcp_Pix4D_to_micmac_selected.py --gcp3d ${DATA_DIR}/3DPoints/3D_objectspace_area.csv --gcp2d ${DATA_DIR}/gcp_2d.txt --list ${DATA_DIR}/control.txt --ext '.tif' --control3d_xml ${DATA_DIR}/gcp_tp-3D.xml --control2d_xml ${DATA_DIR}/gcp_tp-3D-S2D.xml --check3d_xml ${DATA_DIR}/gcp_tp-3D_check.xml --check2d_xml ${DATA_DIR}/gcp_tp-3D-S2D_check.xml 
+```
+
+
 
 
 ## TODO
