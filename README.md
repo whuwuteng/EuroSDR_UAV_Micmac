@@ -47,7 +47,7 @@ Convert the GCP file to Micmac format :
 python3 create_gcp.py --gcp 3D_objectspace.csv --xml gcp_tp-3D.xml
 ```
 
-Conver the 2D measurements to Micmac format :
+Convert the 2D measurements to Micmac format :
 ``` shell
 #! /bin/bash
 
@@ -56,7 +56,20 @@ python3 gcp_Pix4D_to_micmac.py --txt imagepoints.csv --xml gcp_tp-3D-S2D.xml --e
 
 ### Bundle adjustment compensation
 
+After obtaining the GCP points, the initial orientation can be obtained :
+``` shell
+#! /bin/bash
 
+GCPBascule ".*tif" "Ori-Figee" RTL-Bascule gcp_tp-3D.xml gcp_tp-3D-S2D.xml
+```
+
+The similarity transformation is not good enough for the final result, a bundle adjustment step is  needed.
+``` shell
+#! /bin/bash
+
+Campari ".*tif" Ori-RTL-Bascule Compense-Figee GCP=[gcp_tp-3D-S3D.xml,0.05,gcp_tp-3D-S2D.xml,0.5] 
+```
+Then the final result is obtain, the rotation matrix is same with the computer vision.
 
 ### GCP check
 
