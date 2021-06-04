@@ -1,0 +1,33 @@
+<ChantierDescripteur >
+    <LocCamDataBase>
+        <CameraEntry>
+            <Name> Penta </Name>
+            <SzCaptMm>  36.792 49.056 </SzCaptMm>
+            <ShortName> Penta </ShortName>
+        </CameraEntry>
+    </LocCamDataBase>
+
+    <KeyedNamesAssociations>
+        <Calcs>
+            <Arrite> 1 1 </Arrite>
+            <Direct>
+                <PatternTransform>  .* </PatternTransform>
+		<CalcName> Penta </CalcName>
+		</Direct>
+        </Calcs>
+        <Key> NKS-Assoc-STD-CAM </Key>
+    </KeyedNamesAssociations>
+
+
+    <KeyedNamesAssociations>
+        <Calcs>
+        <Arrite> 1 1 </Arrite>
+            <Direct>
+	    <PatternTransform> .* </PatternTransform>
+	    <CalcName> 50.1  </CalcName>
+            </Direct>
+        </Calcs>
+        <Key> NKS-Assoc-STD-FOC </Key>
+    </KeyedNamesAssociations>
+
+</ChantierDescripteur>
