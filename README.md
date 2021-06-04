@@ -20,7 +20,7 @@ You an match all the image, i.e NxN, N is the image number.
 mm3d Tapioca ".*tif" -1
 ```
 
-Otherwise, if you can know which image pair you match, you can also define the match pairs to save the time. Thanks for the GPS/IMU, the initial camera position can be obtained. A [xml file](MesCouples.xml) is should to define the pairs. The the match command line is:
+Otherwise, if you can know which image pair you match, you can also define the match pairs to save the time. Thanks for the GPS/IMU, the initial camera position can be obtained. A [xml file](MesCouples.xml) is created to define the pairs. The the match command line is:
 
 ``` shell
 #! /bin/bash
@@ -73,7 +73,15 @@ Then the final result is obtain, the rotation matrix is same with the computer v
 
 ### GCP check
 
-In the experiment, the 2D measurements do not have a good precision. So if you want to use Micmac to measure the points, there is a [tool](https://micmac.ensg.eu/index.php/SaisieAppuisPredic) to do it.
+In the experiment, the 2D measurements do not have a good precision. there is a tool to see the GCP precision, after running the command line, a [text file](ResulBar.txt) is show the result.
+``` shell
+#! /bin/bash
+
+mm3d BAR ".*tif" Ori-Figee gcp_tp-3D.xml gcp_tp-3D-S2D.xml
+```
+
+So if you want to use Micmac to measure the points, there is a [tool](https://micmac.ensg.eu/index.php/SaisieAppuisPredic) to do it.
+
 ``` shell
 #! /bin/bash
 
@@ -89,8 +97,12 @@ DATA_DIR="/home/tengwu/Penta-Cam-Centre"
 python3 gcp_Pix4D_to_micmac_selected.py --gcp3d ${DATA_DIR}/3DPoints/3D_objectspace_area.csv --gcp2d ${DATA_DIR}/gcp_2d.txt --list ${DATA_DIR}/control.txt --ext '.tif' --control3d_xml ${DATA_DIR}/gcp_tp-3D.xml --control2d_xml ${DATA_DIR}/gcp_tp-3D-S2D.xml --check3d_xml ${DATA_DIR}/gcp_tp-3D_check.xml --check2d_xml ${DATA_DIR}/gcp_tp-3D-S2D_check.xml 
 ```
 
+After running the **Campari**, there is a tool to see the precision of the check points.
+``` shell
+#! /bin/bash
 
-
+mm3d GCPCtrl ".*tif" Ori-Compense-Figee gcp_tp-3D_check.xml gcp_tp-3D-S2D_check.xml
+```
 
 ## TODO
 
