@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This dataset is a public dataset from [ISPRS website](https://www2.isprs.org/commissions/comm1/icwg-1-2/benchmark_main/), there is a [conference paper](https://www.isprs-ann-photogramm-remote-sens-spatial-inf-sci.net/II-3-W4/135/2015/isprsannals-II-3-W4-135-2015.pdf)introduce this dataset.  All data and information can be found in the download [document](description_and_download_links_v3.pdf). Write this document is to indicate how to use [Micmac](https://github.com/micmacIGN/micmac) to process the  aerial dataset.
+This dataset is a public dataset from [ISPRS website](https://www2.isprs.org/commissions/comm1/icwg-1-2/benchmark_main/), there is a [conference paper](https://www.isprs-ann-photogramm-remote-sens-spatial-inf-sci.net/II-3-W4/135/2015/isprsannals-II-3-W4-135-2015.pdf)introduce this dataset.  All data and information can be found in the download [document](description_and_download_links_v3.pdf). Writing this document is to indicate how to use [Micmac](https://github.com/micmacIGN/micmac) to process the  aerial dataset.
 
 ## Micmac pipeline
 
@@ -69,7 +69,7 @@ The similarity transformation is not good enough for the final result, a bundle 
 
 Campari ".*tif" Ori-RTL-Bascule Compense-Figee GCP=[gcp_tp-3D-S3D.xml,0.05,gcp_tp-3D-S2D.xml,0.5] 
 ```
-Then the final result is obtain, the rotation matrix is same with the computer vision.
+Then the final result is obtain, the rotation matrix is same with the computer vision, the the element orientation parameter is the camera position.
 
 ### GCP check
 
