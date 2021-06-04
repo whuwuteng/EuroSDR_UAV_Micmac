@@ -29,13 +29,43 @@ mm3d Tapioca File MesCouples.xml -1
 ```
 ### Initial Orientation
 
+Because the [camera calibration](2014-PENTA-01.pdf) is given, in the image orientation, the intrinsic parameters do not need to be calculated. Before calculating the initial orientation, the [camera intrinsic file](AutoCal_Foc-50000_Cam-Canon_EOS_5D_Mark_II.xml) should be given. The the initial orientation can be calculated.
+``` shell
+#! /bin/bash
+
+#put the intrinsic file into Ori-Calib directory
+mm3d Tapas "Figee" ".*tif" InCal=Ori-Calib
+```
 ### Ground control points
+
+This dataset provide the ground control points(GCP) and the 2D measurements of the GCPs. But the files are in [Pix4D](https://support.pix4d.com/hc/en-us/articles/202558699-Using-GCPs) format. These files should be converted into Micmac format.
+
+Convert the GCP file to Micmac format :
+``` shell
+#! /bin/bash
+
+python3 create_gcp.py --gcp 3D_objectspace.csv --xml gcp_tp-3D.xml
+```
+
+Conver the 2D measurements to Micmac format :
+``` shell
+#! /bin/bash
+
+python3 gcp_Pix4D_to_micmac.py --txt imagepoints.csv --xml gcp_tp-3D-S2D.xml --ext '.tif'
+```
 
 ### Bundle adjustment compensation
 
+
+
+### GCP check
+
+
+
 ## TODO
 
-
+- [ ] Five cameras process
+- [ ] LiDAR process
 
 ## Acknowledge
 
