@@ -2,7 +2,15 @@
 
 ## Introduction
 
-This dataset is a public dataset from [ISPRS website](https://www2.isprs.org/commissions/comm1/icwg-1-2/benchmark_main/), there is a [conference paper](https://www.isprs-ann-photogramm-remote-sens-spatial-inf-sci.net/II-3-W4/135/2015/isprsannals-II-3-W4-135-2015.pdf)introduce this dataset.  All data and information can be found in the download [document](description_and_download_links_v3.pdf). Writing this document is to indicate how to use [Micmac](https://github.com/micmacIGN/micmac) to process the  aerial dataset. If you want to know the comparison between Micmac and other commercial software, you can refer to [this document](cncg2015_comunicao_24.pdf), [this report](Comparison_document.pdf) and [this paper](https://www.mdpi.com/2220-9964/9/3/164).
+This dataset is a public dataset from [ISPRS website](https://www2.isprs.org/commissions/comm1/icwg-1-2/benchmark_main/), there is a [conference paper](https://www.isprs-ann-photogramm-remote-sens-spatial-inf-sci.net/II-3-W4/135/2015/isprsannals-II-3-W4-135-2015.pdf) introduce this dataset.  All data and information can be found in the download [document](description_and_download_links_v3.pdf). Writing this document is to indicate how to use [Micmac](https://github.com/micmacIGN/micmac) to process the  aerial dataset. If you want to know the comparison between Micmac and other commercial software, you can refer to [this document](cncg2015_comunicao_24.pdf), [this report](Comparison_document.pdf) and [this paper](https://www.mdpi.com/2220-9964/9/3/164).
+
+### Notice
+
+In the experiment, the ground control point[(GCP) file](3D_objectspace.csv) is in DHDN, maybe is in DHHN92 according to the data year, you can use the [coordinate converter](http://gibs.bkg.bund.de/geoid/gscomp.php?p=g) to check it, the coordinate of [Dortmund](https://www.latlong.net/place/dortmund-germany-14089.html) is known, an example(**G01**) is show, then you can know that the value of DHDN is smaller. So the name of GCP file is not correct, i.e. [Friedensplatz_GCP_DHDN](/data/Friedensplatz_GCP_DHDN.txt) and [Friedensplatz_GCP_ellipsoidal](/data/Friedensplatz_GCP_ellipsoidal.txt). An example of coordinate converting is shown :
+|<img src="/figures/converter.png" width="700" alt="image show" />|
+|:--:|
+| *An exmaple of the converter* |
+
 
 ## Micmac pipeline
 
