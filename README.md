@@ -8,11 +8,12 @@ Writing this document is to indicate how to use [Micmac](https://github.com/micm
 
 ### Notice
 
-In the experiment, the ground control point[(GCP) file](/data/3D_objectspace.csv) is in DHDN, maybe is in DHHN92 according to the data year, you can use the [coordinate converter](http://gibs.bkg.bund.de/geoid/gscomp.php?p=g) to check it, the coordinate of [Dortmund](https://www.latlong.net/place/dortmund-germany-14089.html) is known, an example(**G01**) is show, then you can know that the value of DHDN is smaller. So the name of GCP file is not correct, i.e. [Friedensplatz_GCP_DHDN](/data/Friedensplatz_GCP_DHDN.txt) and [Friedensplatz_GCP_ellipsoidal](/data/Friedensplatz_GCP_ellipsoidal.txt). An example of coordinate converting is shown :
+In the experiment, the ground control point[(GCP) file](/data/3D_objectspace.csv) is in DHDN, maybe is in DHHN92 according to the data year, not in [WGS84 UTM ellipsoidal](https://epsg.io/32632). You can use the [coordinate converter](http://gibs.bkg.bund.de/geoid/gscomp.php?p=g) to check it, the coordinate of [Dortmund](https://www.latlong.net/place/dortmund-germany-14089.html) is known, an example of coordinate converting(**G01**) is shown :
 |<img src="/figures/converter.png" width="700" alt="image show" />|
 |:--:|
 | *An exmaple of the converter* |
 
+Then you can know that the value of DHDN is smaller, so the name of GCP file is not correct, i.e. [Friedensplatz_GCP_DHDN](/data/Friedensplatz_GCP_DHDN.txt) and [Friedensplatz_GCP_ellipsoidal](/data/Friedensplatz_GCP_ellipsoidal.txt). 
 
 ## Micmac pipeline
 
