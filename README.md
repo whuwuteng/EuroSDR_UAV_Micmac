@@ -2,11 +2,13 @@
 
 ## Introduction
 
-This dataset is a public dataset from [ISPRS website](https://www2.isprs.org/commissions/comm1/icwg-1-2/benchmark_main/), there is a [conference paper](https://www.isprs-ann-photogramm-remote-sens-spatial-inf-sci.net/II-3-W4/135/2015/isprsannals-II-3-W4-135-2015.pdf) introduce this dataset.  All data and information can be found in the download [document](description_and_download_links_v3.pdf). Writing this document is to indicate how to use [Micmac](https://github.com/micmacIGN/micmac) to process the  aerial dataset. If you want to know the comparison between Micmac and other commercial software, you can refer to [this document](cncg2015_comunicao_24.pdf), [this report](Comparison_document.pdf) and [this paper](https://www.mdpi.com/2220-9964/9/3/164).
+This dataset is a public dataset from [ISPRS website](https://www2.isprs.org/commissions/comm1/icwg-1-2/benchmark_main/), there is a [conference paper](https://www.isprs-ann-photogramm-remote-sens-spatial-inf-sci.net/II-3-W4/135/2015/isprsannals-II-3-W4-135-2015.pdf) introduce this dataset.  All data and information can be found in the download [document](/document/description_and_download_links_v3.pdf). 
+
+Writing this document is to indicate how to use [Micmac](https://github.com/micmacIGN/micmac) to process the  aerial dataset. If you want to know the comparison between Micmac and other commercial software, you can refer to [this document](/document/cncg2015_comunicao_24.pdf), [this report](/document/Comparison_document.pdf) and [this paper](https://www.mdpi.com/2220-9964/9/3/164).
 
 ### Notice
 
-In the experiment, the ground control point[(GCP) file](3D_objectspace.csv) is in DHDN, maybe is in DHHN92 according to the data year, you can use the [coordinate converter](http://gibs.bkg.bund.de/geoid/gscomp.php?p=g) to check it, the coordinate of [Dortmund](https://www.latlong.net/place/dortmund-germany-14089.html) is known, an example(**G01**) is show, then you can know that the value of DHDN is smaller. So the name of GCP file is not correct, i.e. [Friedensplatz_GCP_DHDN](/data/Friedensplatz_GCP_DHDN.txt) and [Friedensplatz_GCP_ellipsoidal](/data/Friedensplatz_GCP_ellipsoidal.txt). An example of coordinate converting is shown :
+In the experiment, the ground control point[(GCP) file](/data/3D_objectspace.csv) is in DHDN, maybe is in DHHN92 according to the data year, you can use the [coordinate converter](http://gibs.bkg.bund.de/geoid/gscomp.php?p=g) to check it, the coordinate of [Dortmund](https://www.latlong.net/place/dortmund-germany-14089.html) is known, an example(**G01**) is show, then you can know that the value of DHDN is smaller. So the name of GCP file is not correct, i.e. [Friedensplatz_GCP_DHDN](/data/Friedensplatz_GCP_DHDN.txt) and [Friedensplatz_GCP_ellipsoidal](/data/Friedensplatz_GCP_ellipsoidal.txt). An example of coordinate converting is shown :
 |<img src="/figures/converter.png" width="700" alt="image show" />|
 |:--:|
 | *An exmaple of the converter* |
@@ -16,7 +18,7 @@ In the experiment, the ground control point[(GCP) file](3D_objectspace.csv) is i
 
 ### Prepare for process
 
-Because the images do not contain the camera information, so the camera should be defined before processing, the name is [MicMac-LocalChantierDescripteur.xml](MicMac-LocalChantierDescripteur.xml).
+Because the images do not contain the camera information, so the camera should be defined before processing, the name is [MicMac-LocalChantierDescripteur.xml](/setting/MicMac-LocalChantierDescripteur.xml).
 
 ### Match Tie points
 
@@ -28,7 +30,7 @@ You an match all the image, i.e NxN, N is the image number.
 mm3d Tapioca ".*tif" -1
 ```
 
-Otherwise, if you can know which image pair you match, you can also define the match pairs to save the time. Thanks for the GPS/IMU, the initial camera position can be obtained. A [xml file](MesCouples.xml) is created to define the pairs. The the match command line is:
+Otherwise, if you can know which image pair you match, you can also define the match pairs to save the time. Thanks for the GPS/IMU, the initial camera position can be obtained. A [xml file](/setting/MesCouples.xml) is created to define the pairs. The the match command line is:
 
 ``` shell
 #! /bin/bash
@@ -37,7 +39,7 @@ mm3d Tapioca File MesCouples.xml -1
 ```
 ### Initial Orientation
 
-Because the [camera calibration](2014-PENTA-01.pdf) is given, in the image orientation, the intrinsic parameters do not need to be calculated. Before calculating the initial orientation, the [camera intrinsic file](AutoCal_Foc-50000_Cam-Canon_EOS_5D_Mark_II.xml) should be given. The the initial orientation can be calculated.
+Because the [camera calibration](/document/2014-PENTA-01.pdf) is given, in the image orientation, the intrinsic parameters do not need to be calculated. Before calculating the initial orientation, the [camera intrinsic file](/setting/AutoCal_Foc-50000_Cam-Canon_EOS_5D_Mark_II.xml) should be given. The the initial orientation can be calculated.
 ``` shell
 #! /bin/bash
 
@@ -81,7 +83,7 @@ Then the final result is obtain, the rotation matrix is same with the computer v
 
 ### GCP check
 
-In the experiment, the 2D measurements do not have a good precision. there is a tool to see the GCP precision, after running the command line, a [text file](ResulBar.txt) is show the result.
+In the experiment, the 2D measurements do not have a good precision. there is a tool to see the GCP precision, after running the command line, a [text file](/result/ResulBar.txt) is show the result.
 ``` shell
 #! /bin/bash
 
