@@ -15,6 +15,8 @@ In the experiment, the ground control point[(GCP) file](/data/3D_objectspace.csv
 
 Then you can know that the value of DHDN is smaller, so the name of GCP file is not correct, i.e. [Friedensplatz_GCP_DHDN](/data/Friedensplatz_GCP_DHDN.txt) and [Friedensplatz_GCP_ellipsoidal](/data/Friedensplatz_GCP_ellipsoidal.txt). 
 
+As the DHDN is not a Euclidean coordinate space in a **large** region, so we can not assure that the result is correct use the GCPs.
+
 ## Micmac pipeline
 
 ### Prepare for process
