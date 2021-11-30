@@ -117,6 +117,18 @@ After running the **Campari**, there is a tool to see the precision of the check
 mm3d GCPCtrl ".*tif" Ori-Compense-Figee gcp_tp-3D_check.xml gcp_tp-3D-S2D_check.xml
 ```
 
+## Feature matching point
+
+After bundle adjustment,  in the result, the 2D feature points and 3D points are not include. In order to use the feature matching information, first you need to track the feature matching result:
+``` shell
+#! /bin/bash
+
+mm3d TestLib ConvNewFH ".*tif" "" Bin=0 ExpTxt=0 
+```
+
+After tracking the point, there is a file name 
+
+
 ## TODO
 
 - [ ] Five cameras process
