@@ -15,7 +15,7 @@ In the experiment, the ground control point[(GCP) file](/data/3D_objectspace.csv
 
 Then you can know that the value of DHDN is smaller, so the name of GCP file is not correct, i.e. [Friedensplatz_GCP_DHDN](/data/Friedensplatz_GCP_DHDN.txt) and [Friedensplatz_GCP_ellipsoidal](/data/Friedensplatz_GCP_ellipsoidal.txt). 
 
-As the DHDN is not a Euclidean coordinate space in a **large** region, so we can not assure that the result is correct using the GCPs in DHDN coordinate reference framework.
+As the [DHDN is not a Euclidean coordinate space](https://community.pix4d.com/t/best-coordinate-system-settings/7003/4) in a **large** region, so we can not assure that the result is correct using the GCPs in DHDN coordinate reference framework.
 
 ## Micmac pipeline
 
@@ -126,7 +126,25 @@ After bundle adjustment,  in the result, the 2D feature points and 3D points are
 mm3d TestLib ConvNewFH ".*tif" "" Bin=0 ExpTxt=0 
 ```
 
-After tracking the point, there is a file name 
+After tracking the point, there is a file name **"PMul.txt"** file in the folder **Homol**. After generating the feature points, then you need to convert to **xml** format:
+
+``` shell
+#! /bin/bash
+
+python3 match_track_to_micmac.py --txt PMul.txt --xml PMul.xml
+```
+
+After transforming the feature point, if you want to do the triangulation, you can use the command:
+
+``` shell
+#! /bin/bash
+mm3d TestLib PseudoIntersect  ".*tif"  Ori-Compense-Figee PMul.xml
+
+```
+
+After running the command, you can obtain three file: **"3DCoords.txt"**, **"3DCoords.txt.ply"** and **"3DCoords.xml"**.
+
+Attention, these steps actually are included in command **mm3d AperiCloud**.
 
 
 ## TODO
