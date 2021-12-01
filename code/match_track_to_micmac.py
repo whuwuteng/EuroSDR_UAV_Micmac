@@ -42,7 +42,8 @@ def LoadPMul(track_file) :
     for i in range(8) :
         infile.readline()
 
-    count = 0
+    # consider micmac index 
+    count = 100000
     for i in range(config_num) :
         num_view_line = infile.readline()
         num = int(num_view_line.split(' ')[0])
@@ -65,7 +66,9 @@ def LoadPMul(track_file) :
             count = count + 1
 
         # last
-        infile.readline()    
+        infile.readline()
+    print('number of points: ' + str(count - 100000))
+    
     return image, gcplist
 
 if __name__ == '__main__':
